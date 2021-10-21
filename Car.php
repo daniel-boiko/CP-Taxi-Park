@@ -10,9 +10,9 @@ class Car extends Driver
     {
         echo "Model of Car: ";
         $this -> modelCar = readline();
-        echo "Color of Car:";
+        echo "Color of Car: ";
         $this -> colorCar = readline();
-        echo "Number of Car:";
+        echo "Number of Car: ";
         $this -> numberCar = readline();
     }
 
@@ -20,7 +20,7 @@ class Car extends Driver
     {
         echo "Model: " . $this -> modelCar . "\n";
         echo "Color: " . $this -> colorCar . "\n";
-        echo "Car Number:" . $this -> numberCar . "\n";
+        echo "Car Number: " . $this -> numberCar . "\n";
     }
 
 }
