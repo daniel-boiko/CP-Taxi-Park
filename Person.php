@@ -8,25 +8,25 @@ class Person
 
     function __construct()
     {
-        $this->age = 0;
-        $this->name = "None";
+        $this -> name = "None";
+        $this -> age = 0;
     }
 
     function inputPerson()
     {
-        echo "Age: ";
-        $this->age = setNumber();
         echo "Name: ";
-        $this->name = readline();
+        $this -> name = readline();
+        echo "Age: ";
+        $this -> age = setNumber();
     }
 
     function printPerson()
     {
-        echo "Age: " . $this->age . "\n";
         echo "Name: " . $this->name . "\n";
+        echo "Age: " . $this->age . "\n";
     }
 
-    function writeFilePerson($dataName)
+/*    function writeFilePerson($dataName)
     {
         fwrite($dataName, $this->name . " " . $this->age . " ");
     }
@@ -35,6 +35,6 @@ class Person
     {
         $this->name = $fileName;
         $this->age = $fileAge;
-    }
+    }*/
 
 }

@@ -8,5 +8,4 @@ require('function.php');
 
 $factory = new Factory;
 $clinic = $factory->build();
-$clinic->readFile();
 menu($clinic);

@@ -1,11 +1,12 @@
 <?php
 
+
 function printMenu()
 {
-    echo "\n1. Add new patients\n";
-    echo "2. Add new doctors\n";
-    echo "3. Print info about all patients\n";
-    echo "4. Print info about all doctors\n";
+    echo "\n1. Add new drivers\n";
+    echo "2. Add new cars\n";
+    echo "3. Print info about all drivers\n";
+    echo "4. Print info about all cars\n";
     echo "5. Exit\n";
     echo ">";
 }
@@ -34,7 +35,6 @@ function menu($clinic)
                 break;
         }
     }
-    $clinic->writingFile();
 
 }
 
@@ -47,7 +47,7 @@ function setNumber()
             $flag = true;
             return $number;
         } else {
-            echo "\nError Input, try again: \n";
+            echo "\nError input, try again: \n";
         }
     }
 }
