@@ -1,5 +1,7 @@
 <?php
 
+#TaxiPark with 2 extends classes Car and Driver
+
 CONST START_COUNT_DRIVER = 0;
 CONST START_COUNT_CAR = 0;
 
