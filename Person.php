@@ -1,5 +1,6 @@
 <?php
 
+// Basic class
 class Person
 {
     protected int $age;
@@ -7,21 +8,33 @@ class Person
 
     function __construct()
     {
-        $this -> age = 0;
-        $this -> name= "None";
+        $this->age = 0;
+        $this->name = "None";
     }
 
-    function inputPerson ()
+    function inputPerson()
     {
-        echo "Enter the age: ";
-        $this -> age = readline();
-        echo "Enter the name: ";
-        $this -> name = readline();
+        echo "Age: ";
+        $this->age = setNumber();
+        echo "Name: ";
+        $this->name = readline();
     }
 
-    function printPerson ()
+    function printPerson()
     {
-        echo "Age: " . $this -> age . "\n";
-        echo "Name: " . $this -> name . "\n";
+        echo "Age: " . $this->age . "\n";
+        echo "Name: " . $this->name . "\n";
     }
+
+    function writeFilePerson($dataName)
+    {
+        fwrite($dataName, $this->name . " " . $this->age . " ");
+    }
+
+    function readFilePerson($fileName, $fileAge)
+    {
+        $this->name = $fileName;
+        $this->age = $fileAge;
+    }
+
 }
