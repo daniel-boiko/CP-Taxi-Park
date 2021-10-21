@@ -5,9 +5,11 @@ class Car extends Driver
     public string $modelCar;
     public string $colorCar;
     public string $numberCar;
+    public string $typeCar;
 
     function __construct()
     {
+        $this -> typeCar = "None";
         $this -> modelCar = "None";
         $this -> colorCar = "None";
         $this -> numberCar = "None";
@@ -15,6 +17,8 @@ class Car extends Driver
 
     function inputCar()
     {
+        echo "Type of Car: ";
+        $this -> typeCar = readline();
         echo "Model of Car: ";
         $this -> modelCar = readline();
         echo "Color of Car: ";
@@ -25,6 +29,7 @@ class Car extends Driver
 
     function outputCar()
     {
+        echo "Type: " . $this -> typeCar . "\n";
         echo "Model: " . $this -> modelCar . "\n";
         echo "Color: " . $this -> colorCar . "\n";
         echo "Car Number: " . $this -> numberCar . "\n";
