@@ -2,8 +2,7 @@
 
 #TaxiPark with 2 extends classes Car and Driver
 
-CONST START_COUNT_DRIVER = 0;
-CONST START_COUNT_CAR = 0;
+CONST START_COUNT_ELEMENTS = 0;
 
 class TaxiPark extends Car
 {
@@ -12,16 +11,36 @@ class TaxiPark extends Car
     public int $countDriver = 0 ;
     public int $countCar = 0;
 
-    /*  public function __construct()
-      {
 
-    */
+    public function __construct(Driver $newDriver, Car $newCar)
+    {
+        $this -> listDriver[] = $newDriver;
+        $this -> listCar[] = $newCar;
+    }
+
+    public static function getInstance ($newDriver,$newCar)
+    {
+        static $instance = null;
+        if (null == $instance)
+        {
+            if (isset($newDriver))
+            {
+                $instance = new static ($newDriver, $newCar);
+            }
+        }
+        else
+        {
+            echo "ERROR: using existing class \n";
+        }
+        return $instance;
+    }
+
     function inputListDriver()
     {
         echo "Count of Drivers: ";
         $countListDriver = readline();
 
-        for ($i = START_COUNT_DRIVER; $i < ($countListDriver + $this -> countDriver); $i++) {
+        for ($i = $this -> countDriver; $i < ($countListDriver + $this -> countDriver); $i++) {
             echo "Input Driver [" . ($i+1) . "] \n";
             $newDriver = new Driver();
             $newDriver->inputDriver();
@@ -36,7 +55,7 @@ class TaxiPark extends Car
         echo "Count of Cars: ";
         $countListCar = readline();
 
-        for ($i = START_COUNT_CAR; $i < ($countListCar + $this -> countCar); $i++) {
+        for ($i = $this -> countCar; $i < ($countListCar + $this -> countCar); $i++) {
             echo "Input Car № [" . ($i+1) . "] \n";
             $newCar = new Car;
             $newCar -> inputCar();
@@ -90,11 +109,3 @@ class TaxiPark extends Car
         }
     }
 }
-
-/*    function outputListDriver()
-    {
-        echo "------------------- \n";
-        echo "Info about Drivers ";
-        echo date('r') . "\n";
-        for ($i=START_COUNT_DRIVER; $i < $this-> )
-    }*/
