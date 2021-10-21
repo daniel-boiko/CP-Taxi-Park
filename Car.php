@@ -6,6 +6,13 @@ class Car extends Driver
     public string $colorCar;
     public string $numberCar;
 
+    function __construct()
+    {
+        $this -> modelCar = "None";
+        $this -> colorCar = "None";
+        $this -> numberCar = "None";
+    }
+
     function inputCar()
     {
         echo "Model of Car: ";

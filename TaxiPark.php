@@ -12,6 +12,11 @@ class TaxiPark extends Car
     public int $countDriver;
     public int $countCar;
 
+    public function __construct()
+    {
+
+    }
+
     function inputListDriver()
     {
         echo "Count of Drivers: ";
@@ -33,7 +38,7 @@ class TaxiPark extends Car
 
         for ($i=START_COUNT_CAR; $i<$countCar; $i++)
         {
-            echo "Input Car № " . $i+1 . "] \n ";
+            echo "Input Car № [" . $i+1 . "] \n ";
             $newCar = new Car;
             $newCar -> inputCar();
             $this -> listCar[$i] = $newCar;
@@ -45,6 +50,6 @@ class TaxiPark extends Car
         echo "------------------- \n";
         echo "Info about Drivers ";
         echo date('r') . "\n";
-        for ($i=START_COUNT_DRIVER; $i < $this->)
-    } */
+        for ($i=START_COUNT_DRIVER; $i < $this-> )
+    }*/
 }
