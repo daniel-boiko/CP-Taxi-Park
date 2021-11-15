@@ -4,7 +4,7 @@
 
 CONST START_COUNT_ELEMENTS = 0;
 
-class TaxiPark extends Car
+class TaxiStation extends Car
 {
     public array $listDriver = [];
     public array $listCar = [];

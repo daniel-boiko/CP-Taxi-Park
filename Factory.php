@@ -11,7 +11,7 @@ class Factory
 
     public function buildGovernment ($newPatient, $newDoctor)
     {
-        return TaxiPark::getInstance($newPatient,$newDoctor);
+        return TaxiStation::getInstance($newPatient,$newDoctor);
     }
 
     public function buildDriver ():Driver
