@@ -1,9 +1,1 @@
-DRIVERS: Thu, 21 Oct 2021 19:08:58 +0000
-
-Fatal error: Uncaught Error: Typed property TaxiPark::$countDriver must not be accessed before initialization in C:\Users\Daniil Boyko\PhpstormProjects\TaxiComputerPractice\TaxiPark.php:49
-Stack trace:
-#0 C:\Users\Daniil Boyko\PhpstormProjects\TaxiComputerPractice\execute.php(18): TaxiPark->outputListDriver()
-#1 {main}
-  thrown in C:\Users\Daniil Boyko\PhpstormProjects\TaxiComputerPractice\TaxiPark.php on line 49
-
-Process finished with exit code 255
+to be continued

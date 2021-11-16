@@ -39,7 +39,7 @@ class TaxiStation extends Car
         $countListDriver = readline();
 
         if ($countListDriver <= 0){
-            echo "Database will be empty if count = 0 \n";
+            echo "Be careful! Database will be empty if you type 0 \n";
         }
         else {
             for ($i = $this->countDriver; $i < ($countListDriver + $this->countDriver); $i++) {
@@ -60,7 +60,7 @@ class TaxiStation extends Car
         $countListCar = readline();
 
         if ($countListCar <= 0){
-            echo "Database will be empty if count = 0 \n";
+            echo "Be careful! Database will be empty if you type 0 \n";
         }
 
         for ($i = $this -> countCar; $i < ($countListCar + $this -> countCar); $i++) {
@@ -86,7 +86,7 @@ class TaxiStation extends Car
     }
 
     #Output info about Car (array)
-    function outputListCar()
+    function outputListCar ()
     {
         echo "-------------- \n";
         echo "CARS: " . date('r') . "\n";
@@ -131,11 +131,29 @@ class TaxiStation extends Car
     function deleteCarInfo()
     {
         for ($i = 0; $i < $this -> countCar; $i++) {
-            unset ($this -> listDriver[$i]);
+            unset ($this -> listCar[$i]);
         }
 
         $this -> listCar = [];
         $this -> countCar = 0;
     }
-    #unset $this -> listCar[]
+
+    #Deleting info about current driver
+    function deleteCurrentDriverInfo()
+    {
+        echo "Choose a driver you want to delete [0 - " . $this -> countCar . "]";
+        $delKey = readline();
+
+        unset ($this -> listDriver[$delKey]);
+    }
+
+    function deleteCurrentCarInfo()
+    {
+        echo "Choose a car you want to delete [0 - ". $this -> countCar . "]";
+        $delKey = readline();
+
+        unset ($this -> listCar[$delKey]);
+    }
+
+
 }
