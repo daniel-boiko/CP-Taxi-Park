@@ -6,12 +6,12 @@ class Factory
     {
         $newDriver = $this -> buildDriver();
         $newCar = $this -> buildCar();
-        return $this -> buildGovernment($newDriver, $newCar);
+        return $this -> buildTaxiStation($newDriver, $newCar);
     }
 
-    public function buildGovernment ($newPatient, $newDoctor)
+    public function buildTaxistation ($newDriver, $newCar)
     {
-        return TaxiStation::getInstance($newPatient,$newDoctor);
+        return TaxiStation::getInstance($newDriver,$newCar);
     }
 
     public function buildDriver ():Driver

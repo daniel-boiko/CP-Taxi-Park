@@ -15,7 +15,7 @@
     	описание структуры данных,
     	алгоритм работы программной системы,
     	текст программы,
-    	скрин-шоты работы системы при различных данных,
+    	скриншоты работы системы при различных данных,
     	руководство пользователя по работе с программной системой (установка системы, работа в системе).
     К защите предоставляются следующие материалы
 3.1.	 Пояснительная записка (см. Метод. указания).
@@ -35,50 +35,72 @@ echo "
 
 $factory = new Factory;
 $result = $factory -> build();
-$result -> inputListDriver();
-$result -> inputListCar();
+#$result -> inputListDriver();
+#$result -> inputListCar();
 
 $flagMenu = true;
 
-while ($flagMenu == true)
-{
-    echo "If you want to show Taxi-Park Menu - type 'M': ";
-    $menuBar = readline();
+echo "Do you want to use TaxiPark app? [Y/N] \n";
+$menuBar = readline();
 
-    if ($menuBar == 'M') {
+if (($menuBar == 'Y') or ($menuBar == 'y')) {
+
+    while ($flagMenu == true) {
         echo "Type '+D' if you want to add drivers \n";
         echo "Type '+C' if you want to add cars \n";
         echo "Type 'SD' to show info about drivers \n";
         echo "Type 'SC' to show info about cars \n";
+        echo "Type 'INFO' to output all info \n";
+        echo "Type 'Delete Drivers' to delete info about all/someone drivers \n";
+        echo "Type 'Delete Cars' to delete info about all/something cars \n";
         echo "Type 'Q' to exit the Taxi-Park program \n";
-    }
 
-    $menuBar = readline();
-    if (($menuBar == "+D") or ($menuBar == "+d"))
-    {
-        $result -> inputListDriver();
-    }
-    else if (($menuBar == "+C") or ($menuBar == "+c"))
-    {
-        $result -> inputListCar();
-    }
-    else if (($menuBar == "SD") or ($menuBar == "sd"))
-    {
-        $result -> outputListDriver();
-    }
-    else if (($menuBar == "SC") or ($menuBar == "sc"))
-    {
-        $result -> outputListCar();
-    }
-    else if (($menuBar == "Q") or ($menuBar == "q"))
-    {
-        $flagMenu = false;
-        echo "Best Wishes, by Daniil B.";
-    }
-    else
-    {
-        $flagMenu = false;
-        echo "Best Wishes, by Daniil B.";
+        $menuBar = readline();
+        if (($menuBar == "+D") or ($menuBar == "+d")) {
+            $result -> inputListDriver();
+        } else if (($menuBar == "+C") or ($menuBar == "+c")) {
+            $result -> inputListCar();
+        } else if (($menuBar == "SD") or ($menuBar == "sd")) {
+            $result -> outputListDriver();
+        } else if (($menuBar == "SC") or ($menuBar == "sc")) {
+            $result -> outputListCar();
+        } else if (($menuBar == "INFO" or ($menuBar == "info") or $menuBar == "Info")) {
+            $result -> outputInfo();
+        } else if (($menuBar == "Delete Drivers" or ($menuBar == "DELETE DRIVERS") or $menuBar == "delete drivers")) {
+            echo "If you want to delete info about ALL drivers - type 'Delete All' \n";
+            #echo "If you want to delete info about CURRENT car - type 'Delete' \n";
+            $delMenuBar = readline();
+
+            if (($delMenuBar == 'Delete All') or ($delMenuBar == 'DELETE ALL') or ($delMenuBar == 'Delete all')) {
+                $result -> deleteDriverInfo();
+            }
+
+            #else if (($delMenuBar == 'Delete') or ($delMenuBar == 'DELETE') or ($delMenuBar == 'delete')) {
+            #$result -> deleteCurrentDriverInfo();
+            #}
+
+        } else if (($menuBar == "Delete Cars" or ($menuBar == "DELETE CARS") or $menuBar == "delete cars")) {
+
+            echo "If you want to delete info about ALL cars - type 'Delete All' \n";
+            #echo "If you want to delete info about CURRENT car - type 'Delete' \n";
+            $delMenuBar = readline();
+
+            if (($delMenuBar == 'Delete All') or ($delMenuBar == 'DELETE ALL') or ($delMenuBar == 'Delete all')) {
+                $result -> deleteCarInfo();
+            }
+            #else if (($delMenuBar == 'Delete') or ($delMenuBar == 'DELETE') or ($delMenuBar == 'delete')) {
+            #    $result -> deleteCurrentCarInfo();
+            #}
+        }
+
+        else if (($menuBar == "Q") or ($menuBar == "q")) {
+            $flagMenu = false;
+            echo "Best Wishes, by Daniil B.";
+        } else {
+            $flagMenu = false;
+            echo "Best Wishes, by Daniil B.";
+        }
     }
 
 }
+else echo "Best Wishes, by Daniil B.";

@@ -7,6 +7,7 @@ class Car extends Driver
     public string $numberCar;
     public string $typeCar;
 
+    #Class constructor
     function __construct()
     {
         $this -> typeCar = "None";
@@ -15,6 +16,7 @@ class Car extends Driver
         $this -> numberCar = "None";
     }
 
+    #Form to input info about Car (type, model, color)
     function inputCar()
     {
         echo "Type of Car: ";
@@ -27,6 +29,7 @@ class Car extends Driver
         $this -> numberCar = readline();
     }
 
+    #Form to output info about Car (type, model, color)
     function outputCar()
     {
         echo "Type: " . $this -> typeCar . "\n";

@@ -6,6 +6,7 @@ class Driver
     public int $ageDriver;
     public int $expDriver;
 
+    #Class constructor
     function __construct ()
     {
         $this -> nameDriver = "None";
@@ -13,6 +14,7 @@ class Driver
         $this -> expDriver = 0;
     }
 
+    #Form to input info about Driver (name, age, exp)
     function inputDriver()
     {
         echo "Name: ";
@@ -23,6 +25,7 @@ class Driver
         $this -> expDriver = readline();
     }
 
+    #Form to output info about Driver (name, age, exp)
     function outputDriver()
     {
         echo "Name: " . $this -> nameDriver . "\n";
