@@ -19,8 +19,20 @@ class Car extends Driver
     #Form to input info about Car (type, model, color)
     function inputCar()
     {
+        #1 - passenger car
+        #2 - truck
+        #3 - minivan
         echo "Type of Car: ";
         $this -> typeCar = readline();
+
+        if ($this -> typeCar == '1') {
+            $this -> typeCar = 'Passenger Car';
+        } else if ($this -> typeCar == '2') {
+            $this -> typeCar = 'Truck';
+        } else if ($this -> typeCar == '3') {
+            $this -> typeCar = 'Minivan';
+        }
+
         echo "Model of Car: ";
         $this -> modelCar = readline();
         echo "Color of Car: ";

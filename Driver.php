@@ -5,6 +5,7 @@ class Driver
     public string $nameDriver;
     public int $ageDriver;
     public int $expDriver;
+    public string $natDriver;
 
     #Class constructor
     function __construct ()
@@ -12,6 +13,7 @@ class Driver
         $this -> nameDriver = "None";
         $this -> ageDriver = 0;
         $this -> expDriver = 0;
+        $this -> natDriver = "None";
     }
 
     #Form to input info about Driver (name, age, exp)
@@ -23,6 +25,8 @@ class Driver
         $this -> ageDriver = readline();
         echo "Experience: ";
         $this -> expDriver = readline();
+        echo "Nationality: ";
+        $this -> natDriver = readline();
     }
 
     #Form to output info about Driver (name, age, exp)
@@ -31,5 +35,6 @@ class Driver
         echo "Name: " . $this -> nameDriver . "\n";
         echo "Age: " . $this -> ageDriver . "\n";
         echo "Experience: " . $this -> expDriver . "\n";
+        echo "Nationality: " . $this -> natDriver . "\n";
     }
 }

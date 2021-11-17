@@ -37,7 +37,6 @@ $factory = new Factory;
 $result = $factory -> build();
 #$result -> inputListDriver();
 #$result -> inputListCar();
-
 $flagMenu = true;
 
 echo "Do you want to use TaxiPark app? [Y/N] \n";
@@ -63,10 +62,22 @@ if (($menuBar == 'Y') or ($menuBar == 'y')) {
         } else if (($menuBar == "SD") or ($menuBar == "sd")) {
             $result -> outputListDriver();
         } else if (($menuBar == "SC") or ($menuBar == "sc")) {
-            $result -> outputListCar();
+
+//            echo "Type 'Pass Cars' if you want to show all PASSENGER cars \n";
+            echo "Type 'All Cars' if you want to show ALL cars \n";
+            $showMenuCar = readline();
+//            if (($showMenuCar == "Pass Cars") or ($showMenuCar == 'PASS CARS') or ($showMenuCar == 'pass cars')) {
+//                $result -> outputPassengerCar();
+//            }
+//            else
+            if (($showMenuCar == "All Cars") or ($showMenuCar == 'ALL CARS') or ($showMenuCar == 'all cars')) {
+                $result -> outputListCar();
+            }
+
         } else if (($menuBar == "INFO" or ($menuBar == "info") or $menuBar == "Info")) {
             $result -> outputInfo();
         } else if (($menuBar == "Delete Drivers" or ($menuBar == "DELETE DRIVERS") or $menuBar == "delete drivers")) {
+
             echo "If you want to delete info about ALL drivers - type 'Delete All' \n";
             #echo "If you want to delete info about CURRENT car - type 'Delete' \n";
             $delMenuBar = readline();

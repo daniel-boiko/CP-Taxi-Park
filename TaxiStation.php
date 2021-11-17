@@ -45,8 +45,8 @@ class TaxiStation extends Car
             for ($i = $this->countDriver; $i < ($countListDriver + $this->countDriver); $i++) {
                 echo "Input Driver [" . ($i + 1) . "] \n";
                 $newDriver = new Driver();
-                $newDriver->inputDriver();
-                $this->listDriver[$i] = $newDriver;
+                $newDriver -> inputDriver();
+                $this -> listDriver[$i] = $newDriver;
             }
         }
 
@@ -59,7 +59,7 @@ class TaxiStation extends Car
         echo "Count of Cars: ";
         $countListCar = readline();
 
-        if ($countListCar <= 0){
+        if ($countListCar <= 0) {
             echo "Be careful! Database will be empty if you type 0 \n";
         }
 
@@ -96,6 +96,19 @@ class TaxiStation extends Car
             echo "\n \n";
         }
     }
+
+//    function outputPassengerCar()
+//    {
+//        echo "-------------- \n";
+//        echo "PASSENGER CARS: " . date('r') . "\n";
+//        for ($i = 0; $i < $this -> countCar; $i++) {
+//            if ($this -> typeCar = '1') {
+//                echo "Car [" . ($i+1) . "] \n";
+//                $this -> listCar[$i] -> outputCar();
+//                echo "\n \n";
+//            }
+//        }
+//    }
 
     #Output info about Drivers and Cars (arrays)
     function outputInfo()
