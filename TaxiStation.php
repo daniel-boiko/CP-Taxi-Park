@@ -2,7 +2,6 @@
 
 #TaxiPark with 2 extends classes Car and Driver
 
-
 class TaxiStation extends Car
 {
     #Values of TaxiStation class (arrays and count[Driver/Car])
@@ -126,7 +125,7 @@ class TaxiStation extends Car
         }
     }
 
-    #output only passenger cars (array)
+    #Output only passenger cars (array)
     function outputListPassCar ()
     {
         echo "-------------- \n";
@@ -138,6 +137,7 @@ class TaxiStation extends Car
         }
     }
 
+    #Output only truck cars (array)
     function outputListTruckCar ()
     {
         echo "-------------- \n";
@@ -149,6 +149,7 @@ class TaxiStation extends Car
         }
     }
 
+    #Output only  minivan cars (array)
     function outputListMinivanCar()
     {
         echo "-------------- \n";
@@ -160,6 +161,7 @@ class TaxiStation extends Car
 
         }
     }
+
     #Output info about Drivers and Cars (arrays)
     function outputInfo()
     {
@@ -201,7 +203,6 @@ class TaxiStation extends Car
         $this -> listCar = [];
         $this -> listPassCar = [];
         $this -> countCar = 0;
-        $this -> countCurrentTypeCar = 0;
     }
 
     #Deleting info about current driver
