@@ -35,8 +35,6 @@ echo "
 
 $factory = new Factory;
 $result = $factory -> build();
-#$result -> inputListDriver();
-#$result -> inputListCar();
 $flagMenu = true;
 
 echo "Do you want to use TaxiPark app? [Y/N] \n";
@@ -45,6 +43,7 @@ $menuBar = readline();
 if (($menuBar == 'Y') or ($menuBar == 'y')) {
 
     while ($flagMenu == true) {
+        echo "--------- \n";
         echo "Type '+D' if you want to add drivers \n";
         echo "Type '+C' if you want to add cars \n";
         echo "Type 'SD' to show info about drivers \n";
@@ -53,8 +52,11 @@ if (($menuBar == 'Y') or ($menuBar == 'y')) {
         echo "Type 'Delete Drivers' to delete info about all/someone drivers \n";
         echo "Type 'Delete Cars' to delete info about all/something cars \n";
         echo "Type 'Q' to exit the Taxi-Park program \n";
+        echo "--------- \n";
 
+        echo "Run: ";
         $menuBar = readline();
+
         if (($menuBar == "+D") or ($menuBar == "+d")) {
             $result -> inputListDriver();
         } else if (($menuBar == "+C") or ($menuBar == "+c")) {
@@ -62,16 +64,20 @@ if (($menuBar == 'Y') or ($menuBar == 'y')) {
         } else if (($menuBar == "SD") or ($menuBar == "sd")) {
             $result -> outputListDriver();
         } else if (($menuBar == "SC") or ($menuBar == "sc")) {
-
-//            echo "Type 'Pass Cars' if you want to show all PASSENGER cars \n";
             echo "Type 'All Cars' if you want to show ALL cars \n";
+            echo "Type 'Pass Cars' if you want to show all PASSENGER cars \n";
+            echo "Type 'Truck Cars' if you want to show all TRUCK cars \n";
+            echo "Type 'Minivan Cars' if you want to show all MINIVAN cars \n";
             $showMenuCar = readline();
-//            if (($showMenuCar == "Pass Cars") or ($showMenuCar == 'PASS CARS') or ($showMenuCar == 'pass cars')) {
-//                $result -> outputPassengerCar();
-//            }
-//            else
+
             if (($showMenuCar == "All Cars") or ($showMenuCar == 'ALL CARS') or ($showMenuCar == 'all cars')) {
                 $result -> outputListCar();
+            } else if (($showMenuCar == 'Pass Cars') or ($showMenuCar == 'PASS CARS') or ($showMenuCar == 'pass cars')) {
+                $result -> outputListPassCar();
+            } else if (($showMenuCar == 'Truck Cars') or ($showMenuCar == 'TRUCK CARS') or ($showMenuCar == 'truck cars')) {
+                $result -> outputListTruckCar();
+            } else if (($showMenuCar == 'Minivan Cars') or ($showMenuCar == 'MINIVAN CARS') or ($showMenuCar == 'minivan cars')) {
+                $result -> outputListMinivanCar();
             }
 
         } else if (($menuBar == "INFO" or ($menuBar == "info") or $menuBar == "Info")) {
@@ -93,18 +99,13 @@ if (($menuBar == 'Y') or ($menuBar == 'y')) {
         } else if (($menuBar == "Delete Cars" or ($menuBar == "DELETE CARS") or $menuBar == "delete cars")) {
 
             echo "If you want to delete info about ALL cars - type 'Delete All' \n";
-            #echo "If you want to delete info about CURRENT car - type 'Delete' \n";
             $delMenuBar = readline();
 
             if (($delMenuBar == 'Delete All') or ($delMenuBar == 'DELETE ALL') or ($delMenuBar == 'Delete all')) {
                 $result -> deleteCarInfo();
             }
-            #else if (($delMenuBar == 'Delete') or ($delMenuBar == 'DELETE') or ($delMenuBar == 'delete')) {
-            #    $result -> deleteCurrentCarInfo();
-            #}
-        }
-
-        else if (($menuBar == "Q") or ($menuBar == "q")) {
+            
+        } else if (($menuBar == "Q") or ($menuBar == "q")) {
             $flagMenu = false;
             echo "Best Wishes, by Daniil B.";
         } else {
@@ -112,6 +113,4 @@ if (($menuBar == 'Y') or ($menuBar == 'y')) {
             echo "Best Wishes, by Daniil B.";
         }
     }
-
 }
-else echo "Best Wishes, by Daniil B.";

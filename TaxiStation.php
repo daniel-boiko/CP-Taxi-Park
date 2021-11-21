@@ -8,14 +8,23 @@ class TaxiStation extends Car
     #Values of TaxiStation class (arrays and count[Driver/Car])
     public array $listDriver = [];
     public array $listCar = [];
-    public int $countDriver = 0 ;
+    public array $listPassCar = [];
+    public array $listTruckCar = [];
+    public array $listMinivanCar = [];
+    public int $countDriver = 0;
     public int $countCar = 0;
+    public int $countPassCar = 0;
+    public int $countTruckCar = 0;
+    public int $countMinivanCar = 0;
 
 
     #Class constructor
     public function __construct(Driver $newDriver, Car $newCar) {
         $this -> listDriver[] = $newDriver;
         $this -> listCar[] = $newCar;
+        $this -> listPassCar[] = $newCar;
+        $this -> countCar = 0;
+        $this -> countDriver = 0;
     }
 
     #Factory pattern
@@ -33,21 +42,20 @@ class TaxiStation extends Car
     }
 
     #Input info about Drivers (array)
-    function inputListDriver()
-    {
+    function inputListDriver() {
         echo "Count of Drivers: ";
         $countListDriver = readline();
 
-        if ($countListDriver <= 0){
+        if ($countListDriver <= 0) {
             echo "Be careful! Database will be empty if you type 0 \n";
         }
         else {
-            for ($i = $this->countDriver; $i < ($countListDriver + $this->countDriver); $i++) {
-                echo "Input Driver [" . ($i + 1) . "] \n";
-                $newDriver = new Driver();
-                $newDriver -> inputDriver();
-                $this -> listDriver[$i] = $newDriver;
-            }
+                for ($i = $this->countDriver; $i < ($countListDriver + $this->countDriver); $i++) {
+                        echo "Input Driver [" . ($i + 1) . "] \n";
+                        $newDriver = new Driver();
+                        $newDriver -> inputDriver();
+                        $this -> listDriver[$i] = $newDriver;
+                }
         }
 
         $this -> countDriver = $countListDriver + $this -> countDriver;
@@ -64,10 +72,31 @@ class TaxiStation extends Car
         }
 
         for ($i = $this -> countCar; $i < ($countListCar + $this -> countCar); $i++) {
-            echo "Input Car № [" . ($i+1) . "] \n";
-            $newCar = new Car;
-            $newCar -> inputCar();
-            $this -> listCar[$i] = $newCar;
+            echo "Choose what type of car you want to add: ";
+            $chooseType = readline();
+
+            echo "Input Car № [" . ($i + 1) . "] \n";
+
+            if ($chooseType == 1) {
+                $newCar = new Car;
+                $newCar->inputPassCar();
+                $this->listCar[$i] = $newCar;
+                $this->listPassCar[$i] = $newCar;
+                $this->countPassCar = $this->countPassCar + 1;
+            } else if ($chooseType == 2) {
+                $newCar = new Car;
+                $newCar->inputTruckCar();
+                $this->listCar[$i] = $newCar;
+                $this->listTruckCar[$i] = $newCar;
+                $this->countTruckCar = $this->countTruckCar + 1;
+            } else if ($chooseType == 3) {
+                $newCar = new Car;
+                $newCar->inputMinivanCar();
+                $this->listCar[$i] = $newCar;
+                $this->listMinivanCar[$i] = $newCar;
+                $this->countMinivanCar = $this->countMinivanCar + 1;
+            }
+
         }
 
         $this -> countCar = $countListCar + $this -> countCar;
@@ -78,7 +107,7 @@ class TaxiStation extends Car
     {
         echo "-------------- \n";
         echo "DRIVERS: " . date('r') . "\n";
-        for ($i=0; $i < $this -> countDriver; $i++) {
+        for ($i = 0; $i < $this -> countDriver; $i++) {
             echo "Driver [" . ($i+1) . "] \n";
             $this -> listDriver[$i] -> outputDriver();
             echo "\n \n";
@@ -90,39 +119,60 @@ class TaxiStation extends Car
     {
         echo "-------------- \n";
         echo "CARS: " . date('r') . "\n";
-        for ($i=0; $i < $this -> countCar; $i++) {
+        for ($i = 0; $i < $this -> countCar; $i++) {
             echo "Car [" . ($i+1) . "] \n";
             $this -> listCar[$i] -> outputCar();
             echo "\n \n";
         }
     }
 
-//    function outputPassengerCar()
-//    {
-//        echo "-------------- \n";
-//        echo "PASSENGER CARS: " . date('r') . "\n";
-//        for ($i = 0; $i < $this -> countCar; $i++) {
-//            if ($this -> typeCar = '1') {
-//                echo "Car [" . ($i+1) . "] \n";
-//                $this -> listCar[$i] -> outputCar();
-//                echo "\n \n";
-//            }
-//        }
-//    }
+    #output only passenger cars (array)
+    function outputListPassCar ()
+    {
+        echo "-------------- \n";
+        echo "PASSENGER CARS: " . date('r') . "\n";
+        for ($i = 0; $i < $this -> countPassCar; $i++) {
+            echo "Car [" . ($i+1) . "] \n";
+            $this -> listPassCar[$i] -> outputPassCar();
+            echo "\n \n";
+        }
+    }
 
+    function outputListTruckCar ()
+    {
+        echo "-------------- \n";
+        echo "PASSENGER CARS: " . date('r') . "\n";
+        for ($i = 0; $i < $this -> countTruckCar; $i++) {
+            echo "Car [" . ($i + 1) . "] \n";
+            $this -> listTruckCar[$i] -> outputTruckCar();
+            echo "\n \n";
+        }
+    }
+
+    function outputListMinivanCar()
+    {
+        echo "-------------- \n";
+        echo "PASSENGER CARS: " . date('r') . "\n";
+        for ($i = 0; $i < $this -> countMinivanCar; $i++) {
+            echo "Car [" . ($i + 1) . "] \n";
+            $this -> listMinivanCar[$i] -> outputMinivanCar();
+            echo "\n \n";
+
+        }
+    }
     #Output info about Drivers and Cars (arrays)
     function outputInfo()
     {
         echo "Taxi-Park by Daniil B. \n";
         echo "CARS: " . date('r') . "\n";
-        for ($i=0; $i < $this -> countCar; $i++) {
+        for ($i = 0; $i < $this -> countCar; $i++) {
             echo "Car [" . ($i+1) . "] \n";
             $this -> listCar[$i] -> outputCar();
             echo "\n \n";
         }
 
         echo "DRIVERS: " . date('r') . "\n";
-        for ($i=0; $i < $this -> countDriver; $i++) {
+        for ($i = 0; $i < $this -> countDriver; $i++) {
             echo "Driver [" . ($i+1) . "] \n";
             $this -> listDriver[$i] -> outputDriver();
             echo "\n \n";
@@ -145,10 +195,13 @@ class TaxiStation extends Car
     {
         for ($i = 0; $i < $this -> countCar; $i++) {
             unset ($this -> listCar[$i]);
+            unset ($this -> listPassCar[$i]);
         }
 
         $this -> listCar = [];
+        $this -> listPassCar = [];
         $this -> countCar = 0;
+        $this -> countCurrentTypeCar = 0;
     }
 
     #Deleting info about current driver
@@ -156,7 +209,6 @@ class TaxiStation extends Car
     {
         echo "Choose a driver you want to delete [0 - " . $this -> countCar . "]";
         $delKey = readline();
-
         unset ($this -> listDriver[$delKey]);
     }
 
@@ -164,9 +216,7 @@ class TaxiStation extends Car
     {
         echo "Choose a car you want to delete [0 - ". $this -> countCar . "]";
         $delKey = readline();
-
         unset ($this -> listCar[$delKey]);
     }
-
 
 }
