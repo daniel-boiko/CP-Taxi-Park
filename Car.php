@@ -2,10 +2,10 @@
 
 class Car extends Driver
 {
+    public string $typeCar;
     public string $modelCar;
     public string $colorCar;
     public string $numberCar;
-    public string $typeCar;
 
     #Class constructor
     function __construct()
@@ -16,11 +16,9 @@ class Car extends Driver
         $this -> numberCar = "None";
     }
 
-    #Form to input info about Car (type, model, color)
-    function inputCar()
+    #Input info about passenger car
+    function inputPassCar ()
     {
-        echo "Type of Car: ";
-        $this -> typeCar = readline();
         echo "Model of Car: ";
         $this -> modelCar = readline();
         echo "Color of Car: ";
@@ -29,10 +27,57 @@ class Car extends Driver
         $this -> numberCar = readline();
     }
 
+    #Input info about truck car
+    function inputTruckCar ()
+    {
+        echo "Model of Car: ";
+        $this -> modelCar = readline();
+        echo "Color of Car: ";
+        $this -> colorCar = readline();
+        echo "Number of Car: ";
+        $this -> numberCar = readline();
+    }
+
+    #Input info about minivan car
+    function inputMinivanCar ()
+    {
+        echo "Model of Car: ";
+        $this -> modelCar = readline();
+        echo "Color of Car: ";
+        $this -> colorCar = readline();
+        echo "Number of Car: ";
+        $this -> numberCar = readline();
+
+    }
+
     #Form to output info about Car (type, model, color)
     function outputCar()
     {
         echo "Type: " . $this -> typeCar . "\n";
+        echo "Model: " . $this -> modelCar . "\n";
+        echo "Color: " . $this -> colorCar . "\n";
+        echo "Car Number: " . $this -> numberCar . "\n";
+    }
+
+    function outputPassCar ()
+    {
+        echo "Type: Passenger Car \n";
+        echo "Model: " . $this -> modelCar . "\n";
+        echo "Color: " . $this -> colorCar . "\n";
+        echo "Car Number: " . $this -> numberCar . "\n";
+    }
+
+    function outputTruckCar ()
+    {
+        echo "Type: Truck \n";
+        echo "Model: " . $this -> modelCar . "\n";
+        echo "Color: " . $this -> colorCar . "\n";
+        echo "Car Number: " . $this -> numberCar . "\n";
+    }
+
+    function outputMinivanCar ()
+    {
+        echo "Type: Minivan Car \n";
         echo "Model: " . $this -> modelCar . "\n";
         echo "Color: " . $this -> colorCar . "\n";
         echo "Car Number: " . $this -> numberCar . "\n";
