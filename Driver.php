@@ -34,7 +34,6 @@ class Driver
     #Form to output info about Driver (name, age, exp)
     function outputDriver()
     {
-        echo "_________________________________\n";
         echo "| Name: " . $this -> nameDriver . "\n";
         echo "| Age: " . $this -> ageDriver . "\n";
         echo "| Experience: " . $this -> expDriver . "\n";

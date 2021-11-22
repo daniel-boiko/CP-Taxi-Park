@@ -53,7 +53,6 @@ class Car extends Driver
     #Form to output info about Car (type, model, color)
     function outputCar()
     {
-        echo "_________________________________ \n";
         if ($this -> typeCar = 1) {
             echo "| Type: Passenger Car           \n";
         }
@@ -73,7 +72,6 @@ class Car extends Driver
 
     function outputPassCar ()
     {
-        echo "_________________________________";
         echo "| Type: Passenger Car \n";
         echo "| Model: " . $this -> modelCar . "\n";
         echo "| Color: " . $this -> colorCar . "\n";
@@ -83,21 +81,19 @@ class Car extends Driver
 
     function outputTruckCar ()
     {
-        echo "__________________________________";
         echo "| Type: Truck                   \n";
-        echo "| Model:                        " . $this -> modelCar . "\n";
-        echo "| Color:                        " . $this -> colorCar . "\n";
-        echo "| Car Number:                   " . $this -> numberCar . "\n";
+        echo "| Model: " . $this -> modelCar . "\n";
+        echo "| Color: " . $this -> colorCar . "\n";
+        echo "| Car Number: " . $this -> numberCar . "\n";
         echo "|_________________________________";
     }
 
     function outputMinivanCar ()
     {
-        echo "__________________________________";
         echo "| Type: Minivan Car             \n";
-        echo "| Model:                        " . $this -> modelCar . "\n";
-        echo "| Color:                        " . $this -> colorCar . "\n";
-        echo "| Car Number:                   " . $this -> numberCar . "\n";
+        echo "| Model: " . $this -> modelCar . "\n";
+        echo "| Color: " . $this -> colorCar . "\n";
+        echo "| Car Number: " . $this -> numberCar . "\n";
         echo "|_________________________________";
     }
 }
