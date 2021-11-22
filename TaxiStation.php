@@ -131,7 +131,7 @@ class TaxiStation extends Car
         echo "-------------- \n";
         echo "PASSENGER CARS: " . date('r') . "\n";
         for ($i = 0; $i < $this -> countPassCar; $i++) {
-            echo "Car [" . ($i+1) . "] \n";
+            echo "| Car [" . ($i+1) . "] \n";
             $this -> listPassCar[$i] -> outputPassCar();
             echo "\n \n";
         }
@@ -143,7 +143,7 @@ class TaxiStation extends Car
         echo "-------------- \n";
         echo "PASSENGER CARS: " . date('r') . "\n";
         for ($i = 0; $i < $this -> countTruckCar; $i++) {
-            echo "Car [" . ($i + 1) . "] \n";
+            echo "| Car [" . ($i + 1) . "] \n";
             $this -> listTruckCar[$i] -> outputTruckCar();
             echo "\n \n";
         }
@@ -155,7 +155,7 @@ class TaxiStation extends Car
         echo "-------------- \n";
         echo "PASSENGER CARS: " . date('r') . "\n";
         for ($i = 0; $i < $this -> countMinivanCar; $i++) {
-            echo "Car [" . ($i + 1) . "] \n";
+            echo "| Car [" . ($i + 1) . "] \n";
             $this -> listMinivanCar[$i] -> outputMinivanCar();
             echo "\n \n";
 
@@ -165,17 +165,17 @@ class TaxiStation extends Car
     #Output info about Drivers and Cars (arrays)
     function outputInfo()
     {
-        echo "Taxi-Park by Daniil B. \n";
-        echo "CARS: " . date('r') . "\n";
+        echo "| Taxi-Park by Daniil B. \n";
+        echo "| CARS: " . date('r') . "\n";
         for ($i = 0; $i < $this -> countCar; $i++) {
-            echo "Car [" . ($i+1) . "] \n";
+            echo "| Car [" . ($i+1) . "] \n";
             $this -> listCar[$i] -> outputCar();
             echo "\n \n";
         }
 
-        echo "DRIVERS: " . date('r') . "\n";
+        echo "| DRIVERS: " . date('r') . "\n";
         for ($i = 0; $i < $this -> countDriver; $i++) {
-            echo "Driver [" . ($i+1) . "] \n";
+            echo "| Driver [" . ($i+1) . "] \n";
             $this -> listDriver[$i] -> outputDriver();
             echo "\n \n";
         }
@@ -219,5 +219,4 @@ class TaxiStation extends Car
         $delKey = readline();
         unset ($this -> listCar[$delKey]);
     }
-
 }
