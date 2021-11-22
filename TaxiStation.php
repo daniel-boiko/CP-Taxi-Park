@@ -16,12 +16,13 @@ class TaxiStation extends Car
     public int $countTruckCar = 0;
     public int $countMinivanCar = 0;
 
-
     #Class constructor
     public function __construct(Driver $newDriver, Car $newCar) {
         $this -> listDriver[] = $newDriver;
         $this -> listCar[] = $newCar;
         $this -> listPassCar[] = $newCar;
+        $this -> listTruckCar[] = $newCar;
+        $this -> listMinivanCar[] = $newCar;
         $this -> countCar = 0;
         $this -> countDriver = 0;
     }
@@ -49,7 +50,7 @@ class TaxiStation extends Car
             echo "Be careful! Database will be empty if you type 0 \n";
         }
         else {
-                for ($i = $this->countDriver; $i < ($countListDriver + $this->countDriver); $i++) {
+                for ($i = $this -> countDriver; $i < ($countListDriver + $this -> countDriver); $i++) {
                         echo "Input Driver [" . ($i + 1) . "] \n";
                         $newDriver = new Driver();
                         $newDriver -> inputDriver();
@@ -78,26 +79,25 @@ class TaxiStation extends Car
 
             if ($chooseType == 1) {
                 $newCar = new Car;
-                $newCar->inputPassCar();
-                $this->listCar[$i] = $newCar;
-                $this->listPassCar[$i] = $newCar;
-                $this->countPassCar = $this->countPassCar + 1;
+                $newCar -> inputPassCar();
+                $this -> listCar[$i] = $newCar;
+                $this -> listPassCar[$i] = $newCar;
+                $this -> countPassCar = $this -> countPassCar + 1;
             } else if ($chooseType == 2) {
                 $newCar = new Car;
-                $newCar->inputTruckCar();
-                $this->listCar[$i] = $newCar;
-                $this->listTruckCar[$i] = $newCar;
-                $this->countTruckCar = $this->countTruckCar + 1;
+                $newCar -> inputTruckCar();
+                $this -> listCar[$i] = $newCar;
+                $this -> listTruckCar[$i] = $newCar;
+                $this -> countTruckCar = $this -> countTruckCar + 1;
             } else if ($chooseType == 3) {
                 $newCar = new Car;
-                $newCar->inputMinivanCar();
-                $this->listCar[$i] = $newCar;
-                $this->listMinivanCar[$i] = $newCar;
-                $this->countMinivanCar = $this->countMinivanCar + 1;
+                $newCar -> inputMinivanCar();
+                $this -> listCar[$i] = $newCar;
+                $this -> listMinivanCar[$i] = $newCar;
+                $this -> countMinivanCar = $this -> countMinivanCar + 1;
             }
 
         }
-
         $this -> countCar = $countListCar + $this -> countCar;
     }
 
@@ -198,26 +198,17 @@ class TaxiStation extends Car
         for ($i = 0; $i < $this -> countCar; $i++) {
             unset ($this -> listCar[$i]);
             unset ($this -> listPassCar[$i]);
+            unset ($this -> listTruckCar[$i]);
+            unset ($this -> listMinivanCar[$i]);
         }
 
         $this -> listCar = [];
         $this -> listPassCar = [];
+        $this -> listTruckCar = [];
+        $this -> listMinivanCar = [];
         $this -> countCar = 0;
+        $this -> countPassCar = 0;
+        $this -> countTruckCar = 0;
+        $this -> countMinivanCar = 0;
     }
-
-    #Deleting info about current driver
-    function deleteCurrentDriverInfo()
-    {
-        echo "Choose a driver you want to delete [0 - " . $this -> countCar . "]";
-        $delKey = readline();
-        unset ($this -> listDriver[$delKey]);
-    }
-
-    function deleteCurrentCarInfo()
-    {
-        echo "Choose a car you want to delete [0 - ". $this -> countCar . "]";
-        $delKey = readline();
-        unset ($this -> listCar[$delKey]);
-    }
-
 }
